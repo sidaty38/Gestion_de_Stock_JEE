@@ -12,7 +12,7 @@ public class Utilisateur {
 	    private String role;
 	    @JsonProperty// "ADMIN", "GESTIONNAIRE", "CLIENT"
 	    private String password;
-	    
+
 	    public Utilisateur(int id,String email,String role,String password) {
 	    	this.id=id;
 	    	this.email=email;
