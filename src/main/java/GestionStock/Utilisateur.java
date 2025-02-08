@@ -8,7 +8,7 @@ public class Utilisateur {
 	    private String role; // "ADMIN", "GESTIONNAIRE", "CLIENT"
 	    private String password;
 
-	    public Utilisateur() {
+	    public Utilisateur(int id,String email,String role,String password) {
 	    	this.id=id;
 	    	this.email=email;
 	    	this.role=role;
