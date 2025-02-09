@@ -17,6 +17,15 @@ public class ClienRepository {
 	public Client getbyid(int id){
 		return clients.get(id);
 	}
+	
+	 public Client getByEmail(String email) {
+	        for (Client client : clients.values()) {
+	            if (client.getEmail().equals(email)) {
+	                return client; 
+	            }
+	        }
+	        return null;  
+	    }
 	public void deletebyid(int id) {
 		clients.remove(id);
 	}

@@ -20,10 +20,11 @@ public class AuthentificationFilter implements Filter {
 		HttpServletResponse rep= (HttpServletResponse) response;
 		String path = req.getRequestURI();
 		boolean isLogin = path.endsWith("/login");
+		boolean isSinginClient=path.endsWith("/insertClient");
 		HttpSession session = req.getSession(false);
 		boolean loggedIn = (session!=null && session.getAttribute("user")!=null);
 		
-		if(isLogin || loggedIn) {
+		if(isLogin || loggedIn || isSinginClient) {
 			chain.doFilter(request, response);
 		}else {
 			rep.sendError(401, "Accès refusé !");

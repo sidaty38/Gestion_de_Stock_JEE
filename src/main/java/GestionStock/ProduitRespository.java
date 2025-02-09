@@ -3,7 +3,7 @@ package GestionStock;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProduitController {
+public class ProduitRespository {
 
 	static Map<Integer,Produit> produits=new HashMap<>();
 	static {
