@@ -13,6 +13,8 @@ private String description;
 private double prix;
 	@JsonProperty
 private int quantite;
+	public Produit() {
+    }
 
 	public Produit(int id_produit,String nom,String description,Double prix,int quantite) {
 		this.id_produit=id_produit;
