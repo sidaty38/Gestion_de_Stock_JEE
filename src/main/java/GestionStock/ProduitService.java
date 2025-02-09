@@ -16,7 +16,7 @@ import jakarta.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ProduitService {
-private ProduitController produitResponse = new ProduitController();
+private ProduitRespository produitResponse = new ProduitRespository();
 
 @GET 
 public Map<Integer, Produit> getAllProduits(){
