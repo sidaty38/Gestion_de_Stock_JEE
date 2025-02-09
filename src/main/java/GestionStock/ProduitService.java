@@ -12,13 +12,16 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
+
 @Path("/produits")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ProduitService {
+	 private static int id_produit = 3;
 private ProduitRespository produitResponse = new ProduitRespository();
 
-@GET 
+@GET
+@Consumes(MediaType.APPLICATION_JSON)
 public Map<Integer, Produit> getAllProduits(){
 	return produitResponse.getAll();
 }
@@ -28,12 +31,15 @@ public Map<Integer, Produit> getAllProduits(){
 public Produit getProduitById(@PathParam("id_produit") int id_produit) {
     return produitResponse.getbyid(id_produit);
 }
-@POST
+@PUT
 @Consumes(MediaType.APPLICATION_JSON)
-public void addProduit(Produit produit) {
+public void InsertProduit(Produit produit) {
+	produit.setId_produit(id_produit++);
     produitResponse.addProduit(produit);
 }
-@PUT
+
+@POST
+
 @Path("/{id_produit}")
 @Consumes(MediaType.APPLICATION_JSON)
 public Produit updateProduit(@PathParam("id_produit") int id_produit, Produit produit) {
