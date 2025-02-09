@@ -19,6 +19,9 @@ public class Utilisateur {
 	    	this.role=role;
 	    	this.password=password;
 	    	}
+	    public Utilisateur() {
+	    	
+	    }
 	    public int getId() {
 	        return id;
 	    }

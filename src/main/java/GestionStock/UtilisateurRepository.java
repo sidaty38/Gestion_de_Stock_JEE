@@ -19,6 +19,16 @@ public class UtilisateurRepository {
 		return users.get(id);
 	}
 	
+	   public Utilisateur getByEmail(String email) {
+	        for (Utilisateur user : users.values()) {
+	            if (user.getEmail().equals(email)) {
+	                return user; 
+	            }
+	        }
+	        return null;  
+	    }
+	
+	
 	public void save(Utilisateur user) {
 		int id=user.getId();
 		users.put(id,user);

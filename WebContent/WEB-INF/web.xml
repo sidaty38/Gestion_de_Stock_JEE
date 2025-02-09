@@ -6,11 +6,11 @@
  <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
  <init-param>
  <param-name>jersey.config.server.provider.packages</param-name>
- <param-value>mr.iscae</param-value>
+ <param-value>GestionStock</param-value>
  </init-param>
  </servlet>
  <servlet-mapping>
  <servlet-name>jersey-servlet</servlet-name>
- <url-pattern>/ws-rest/*</url-pattern>
+ <url-pattern>/*</url-pattern>
  </servlet-mapping>
 </web-app>
