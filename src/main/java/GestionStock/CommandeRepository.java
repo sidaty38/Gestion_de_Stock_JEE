@@ -19,5 +19,7 @@ public class CommandeRepository {
 	public Commandes getbyid(int id){
 		return commande.get(id);
 	}
-	
+	public void deletebyid(int id) {
+		commande.remove(id);
+	}
 }
