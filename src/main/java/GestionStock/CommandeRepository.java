@@ -12,5 +12,12 @@ public class CommandeRepository {
 	public void save(Commandes c) {
 		int id=c.getId();
 		commande.put(id, c);
+		
+		
 
-}}
+}
+	public Commandes getbyid(int id){
+		return commande.get(id);
+	}
+	
+}
