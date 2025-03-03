@@ -22,4 +22,8 @@ public class CommandeRepository {
 	public void deletebyid(int id) {
 		commande.remove(id);
 	}
+	public Commandes update(int id,Commandes c) {
+		commande.replace(id, c);
+		return c;
+	}
 }
