@@ -1,5 +1,6 @@
 package GestionStock;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +24,7 @@ public class Client extends Utilisateur {
     
     public Client () {
     	
+            this.commande = new ArrayList<>(); 
     }
     
     
@@ -56,6 +58,10 @@ public class Client extends Utilisateur {
     
     public void ajouterCommande(Commandes c) {
     	commande.add(c);
+    }
+    
+    public List<Commandes> getcommande() {
+    	return commande;
     }
 
 	

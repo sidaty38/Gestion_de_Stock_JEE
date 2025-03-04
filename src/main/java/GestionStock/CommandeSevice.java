@@ -17,9 +17,9 @@ import jakarta.ws.rs.core.MediaType;
 
 
 public class CommandeSevice {
-	
-	CommandeRepository repository = new CommandeRepository();
-	private ProduitRespository produit = new ProduitRespository();
+	static ClienRepository clientrepository = new ClienRepository();
+	static CommandeRepository repository = new CommandeRepository();
+	static ProduitRespository produit = new ProduitRespository();
 	
 	@PUT
 	@Path("/add")
@@ -30,6 +30,8 @@ public class CommandeSevice {
 		commande.setStatus("En cours");
 		commande.setPrix(produit.prix_totale(commande.getProduits()));
 		produit.reduireStock(commande.getProduits());
+		Client client = clientrepository.getbyid(commande.getIdclient());
+		client.ajouterCommande(commande);
 		repository.save(commande);
 	}
 	@GET

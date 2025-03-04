@@ -1,5 +1,6 @@
 package GestionStock;
 
+import java.util.List;
 import java.util.Map;
 
 import jakarta.ws.rs.Consumes;
@@ -23,11 +24,19 @@ public class ClientService {
 	public Map<Integer,Client> get() {
 		return repository.get();
 	}
+	@GET
+	@Path("historique/commandes/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Commandes> historique_commandes(@PathParam("id") int id){
+		Client client= repository.getbyid(id);
+		return client.getcommande();
+	}
 	
 	@PUT
 	@Path("insertClient")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void insert(Client User) {
+		User.setRole("Client");
 		repository.save(User);
 	}
 	
@@ -45,4 +54,5 @@ public class ClientService {
 	        repository.deletebyid(id);
 	   
 	}
+	
 }

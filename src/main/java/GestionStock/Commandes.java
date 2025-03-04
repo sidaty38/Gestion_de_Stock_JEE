@@ -23,6 +23,12 @@ public class Commandes {
 		public void setId(int id) {
 			this.id = id;
 		}
+		public int getIdclient() {
+			return id_clien;
+		}
+		public void setIdclient(int id_clien) {
+			this.id_clien = id_clien;
+		}
 		public String getStatus() {
 			return status;
 		}
