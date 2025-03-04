@@ -26,4 +26,13 @@ public class ProduitRespository {
 		produits.replace(id_produit, produit);
 		return produit;
 	}
+	// une methode pour la mise a jour par quantite
+	public Produit updateQuantite(int id_produit, int nouvelleQuantite) {
+        Produit produit = produits.get(id_produit);
+        if (produit != null) {
+            produit.setQuantite(nouvelleQuantite);
+        }
+        return produit;
+    }
+	
 }
