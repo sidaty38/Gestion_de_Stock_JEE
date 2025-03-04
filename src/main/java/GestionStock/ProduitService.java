@@ -29,7 +29,6 @@ public Map<Integer, Produit> getAllProduits(){
 @Path("showproduct/{id_produit}")
 @Consumes(MediaType.APPLICATION_JSON)
 public Produit getProduitById(@PathParam("id_produit") int id_produit) {
-	
     return produitResponse.getbyid(id_produit);
 }
 @PUT
