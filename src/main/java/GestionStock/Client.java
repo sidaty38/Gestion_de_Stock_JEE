@@ -1,5 +1,7 @@
 package GestionStock;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Client extends Utilisateur {
@@ -9,6 +11,8 @@ public class Client extends Utilisateur {
     private String  prenom;
 	@JsonProperty
     private String  adress;
+	@JsonProperty
+    private List<Commandes> commande;
     
     public Client (String nom,String prenom,String adress,int id,String email,String password) {
     	 super(id,email,"client",password); 
@@ -48,6 +52,10 @@ public class Client extends Utilisateur {
    
     public void setAdress(String adress) {
         this.adress = adress;
+    }
+    
+    public void ajouterCommande(Commandes c) {
+    	commande.add(c);
     }
 
 	
