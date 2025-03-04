@@ -14,8 +14,6 @@ import jakarta.ws.rs.core.MediaType;
 
 @Path("commande")
 @Produces(MediaType.APPLICATION_JSON)
-
-
 public class CommandeSevice {
 	static ClienRepository clientrepository = new ClienRepository();
 	static CommandeRepository repository = new CommandeRepository();
@@ -34,6 +32,7 @@ public class CommandeSevice {
 		client.ajouterCommande(commande);
 		repository.save(commande);
 	}
+	
 	@GET
 	@Path("/All")
 	public Map<Integer,Commandes> All(){
@@ -47,7 +46,4 @@ public class CommandeSevice {
 		c.setStatus(status.status);
 		repository.update(status.id,c);
 	}
-
-	
-	
 }
