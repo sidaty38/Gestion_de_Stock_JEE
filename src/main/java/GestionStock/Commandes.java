@@ -5,8 +5,10 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Commandes {
-	@JsonProperty
+	   @JsonProperty
 	   private int id;
+	   @JsonProperty
+	   private int id_clien;
 		@JsonProperty
 		private String status;
 		@JsonProperty

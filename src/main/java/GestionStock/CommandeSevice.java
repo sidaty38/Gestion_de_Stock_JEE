@@ -43,7 +43,7 @@ public class CommandeSevice {
 	public void status(StatusResponse status) {
 		Commandes c = repository.getbyid(status.id);
 		c.setStatus(status.status);
-		repository.update(status.id, c);
+		repository.update(status.id,c);
 	}
 
 	
