@@ -51,5 +51,11 @@ public Produit updateProduit(@PathParam("id_produit") int id_produit, Produit pr
 public void deleteProduit(@PathParam("id_produit") int id_produit) {
     produitResponse.deletebyid(id_produit);
 }
+@PUT
+@Path("/{id_produit}/quantite/{nouvelleQuantite}")
+public Produit updateQuantiteProduit(@PathParam("id_produit") int id_produit, 
+                                     @PathParam("nouvelleQuantite") int nouvelleQuantite) {
+    return produitResponse.updateQuantite(id_produit, nouvelleQuantite);
+}
 
 }
