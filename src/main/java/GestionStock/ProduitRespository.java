@@ -33,6 +33,5 @@ public class ProduitRespository {
             produit.setQuantite(nouvelleQuantite);
         }
         return produit;
-    } 
-	
+    }
 }

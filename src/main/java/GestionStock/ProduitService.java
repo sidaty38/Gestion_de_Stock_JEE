@@ -13,7 +13,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
 
-@Path("/produits")
+@Path("/allproducts")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ProduitService {
@@ -26,33 +26,36 @@ public Map<Integer, Produit> getAllProduits(){
 	return produitResponse.getAll();
 }
 @GET 
-@Path("/{id_produit}")
+@Path("showproduct/{id_produit}")
 @Consumes(MediaType.APPLICATION_JSON)
 public Produit getProduitById(@PathParam("id_produit") int id_produit) {
+	
     return produitResponse.getbyid(id_produit);
 }
 @PUT
 @Consumes(MediaType.APPLICATION_JSON)
-public void InsertProduit(Produit produit) {
+public String InsertProduit(Produit produit) {
 	produit.setId_produit(id_produit++);
     produitResponse.addProduit(produit);
+    return "{\"message \": \"Produit ajouté avec succee\"}";
 }
 
 @POST
 
-@Path("/{id_produit}")
+@Path("updateproduct/{id_produit}")
 @Consumes(MediaType.APPLICATION_JSON)
 public Produit updateProduit(@PathParam("id_produit") int id_produit, Produit produit) {
     return produitResponse.update(id_produit, produit);
 }
 @DELETE
-@Path("/{id_produit}")
+@Path("deleteproduct/{id_produit}")
 @Consumes(MediaType.APPLICATION_JSON)
-public void deleteProduit(@PathParam("id_produit") int id_produit) {
+public String  deleteProduit(@PathParam("id_produit") int id_produit) {
     produitResponse.deletebyid(id_produit);
+    return "{\"message \": \"Produit supprimé avec succee\"}";
 }
 @PUT
-@Path("/{id_produit}/quantite/{nouvelleQuantite}")
+@Path("updatequantity/{id_produit}/quantite/{nouvelleQuantite}")
 public Produit updateQuantiteProduit(@PathParam("id_produit") int id_produit, 
                                      @PathParam("nouvelleQuantite") int nouvelleQuantite) {
     return produitResponse.updateQuantite(id_produit, nouvelleQuantite);
