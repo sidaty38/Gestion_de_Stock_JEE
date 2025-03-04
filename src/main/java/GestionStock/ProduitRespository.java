@@ -26,6 +26,28 @@ public class ProduitRespository {
 		produits.replace(id_produit, produit);
 		return produit;
 	}
+	public  void reduireStock(Map<Integer, Integer> produit) {
+        for (Map.Entry<Integer, Integer> entry : produit.entrySet()) {
+        	Integer produitId = entry.getKey();
+            Produit p=produits.get(produitId);
+           int quantite = p.getQuantite();
+           int new_quantite= quantite - entry.getValue();
+           p.setQuantite(new_quantite);
+           produits.replace(produitId, p);
+
+        }
+    }
+	public double prix_totale(Map<Integer, Integer> produit) {
+		double total=0.0;
+        for (Map.Entry<Integer, Integer> entry : produit.entrySet()) {
+        	 int produitId = entry.getKey();
+             int quantite = entry.getValue();
+             Produit p=produits.get(produitId);
+             double prix=p.getPrix();
+             total +=prix*quantite;
+        }
+        return total;
+    }
 	// une methode pour la mise a jour par quantite
 	public Produit updateQuantite(int id_produit, int nouvelleQuantite) {
         Produit produit = produits.get(id_produit);
