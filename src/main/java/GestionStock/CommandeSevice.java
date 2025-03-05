@@ -22,15 +22,22 @@ public class CommandeSevice {
 	@PUT
 	@Path("client/add")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void insert(Commandes commande) {
+	public String insert(Commandes commande) {
+		try {
 		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		commande.setDateCommande(sdf.format(new Date()));
 		commande.setStatus("En cours");
 		commande.setPrix(produit.prix_totale(commande.getProduits()));
+		
 		produit.reduireStock(commande.getProduits());
 		Client client = clientrepository.getbyid(commande.getIdclient());
 		client.ajouterCommande(commande);
 		repository.save(commande);
+		return "";
+		}
+		catch(Exception e){
+			return e.getMessage();
+		}
 	}
 	
 	@GET

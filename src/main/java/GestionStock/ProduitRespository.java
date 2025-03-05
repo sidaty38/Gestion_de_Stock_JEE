@@ -27,15 +27,22 @@ public class ProduitRespository {
 		produits.replace(id_produit, produit);
 		return produit;
 	}
-	public  void reduireStock(Map<Integer, Integer> produit) {
+	public  void reduireStock(Map<Integer, Integer> produit) throws Exception {
         for (Map.Entry<Integer, Integer> entry : produit.entrySet()) {
         	Integer produitId = entry.getKey();
             Produit p=produits.get(produitId);
            int quantite = p.getQuantite();
            int new_quantite= quantite - entry.getValue();
+           if (p == null) {
+               throw new Exception("Produit avec ID " + produitId + " introuvable !");
+           }
+
+           if (new_quantite < 0) {
+               throw new Exception("Stock insuffisant pour le produit ID " + produitId);
+           }
+           
            p.setQuantite(new_quantite);
            produits.replace(produitId, p);
-
         }
     }
 	public double prix_totale(Map<Integer, Integer> produit) {
