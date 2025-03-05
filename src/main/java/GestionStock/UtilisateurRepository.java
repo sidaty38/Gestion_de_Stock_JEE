@@ -8,8 +8,8 @@ public class UtilisateurRepository {
 	static Map<Integer,Utilisateur> users=new HashMap<>();
 	
 	static {
-		users.put(1, new Utilisateur(1, "admin", "Admin", "admin"));
-		users.put(2, new Utilisateur(2,"gestionnaire","gestionnaire","1234"));
+		users.put(1, new Utilisateur(1, "Admin", "Admin", "admin"));
+		users.put(2, new Utilisateur(2,"Gestionnaire","gestionnaire","1234"));
 	}
 	
 	public Map<Integer,Utilisateur> get() {

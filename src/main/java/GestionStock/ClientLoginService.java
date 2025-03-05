@@ -18,7 +18,7 @@ public class ClientLoginService {
     	Client client=repository.getByEmail(rep.getEmail());
    	 if(client!=null && client.getPassword().equals(rep.getPassword())) {
    		 HttpSession session = req.getSession(true);
-   		 session.setAttribute("user", client);
+   		 session.setAttribute("role", client.getRole());
    		 return Response.ok().build();
    	 }else {
    		 return Response.status(401).encoding("Echec de l'authentification ").build(); 

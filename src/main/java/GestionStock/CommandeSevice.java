@@ -20,7 +20,7 @@ public class CommandeSevice {
 	static ProduitRespository produit = new ProduitRespository();
 	
 	@PUT
-	@Path("/add")
+	@Path("client/add")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void insert(Commandes commande) {
 		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -34,13 +34,13 @@ public class CommandeSevice {
 	}
 	
 	@GET
-	@Path("/All")
+	@Path("gestionnaire/All")
 	public Map<Integer,Commandes> All(){
 		return repository.get();
 	}
 	
 	@POST
-	@Path("/status")
+	@Path("gestionnaire/status")
 	public void status(StatusResponse status) {
 		Commandes c = repository.getbyid(status.id);
 		c.setStatus(status.status);

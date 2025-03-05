@@ -19,8 +19,8 @@ public class LoginService {
      public Response Login(LoginReponse rep,@Context HttpServletRequest req) {
     	 Utilisateur user=repository.getByEmail(rep.getEmail());
     	 if(user!=null && user.getPassword().equals(rep.getPassword())) {
-    		 HttpSession session = req.getSession(true);
-    		 session.setAttribute("user", user);
+    		 HttpSession session = req.getSession(true);	
+    		 session.setAttribute("role", user.getRole());
     		 return Response.ok().build();
     	 }else {
     		 return Response.status(401).encoding("Echec de l'authentification ").build(); 

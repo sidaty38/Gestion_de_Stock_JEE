@@ -6,6 +6,7 @@ import java.util.Map;
 public class ProduitRespository {
 
 	static Map<Integer,Produit> produits=new HashMap<>();
+	static Map<Integer,String> produitfaible= new HashMap<>();
 	static {
 		produits.put(1, new Produit(1,"Ordinateur","PC Portable Marque DEll",120000.0,20));
 		produits.put(2, new Produit(2,"SmartPhone","Telephone Portable Marque Samsung",450000.0,30));
@@ -48,7 +49,9 @@ public class ProduitRespository {
         }
         return total;
     }
-	// une methode pour la mise a jour par quantite
+	
+	
+	
 	public Produit updateQuantite(int id_produit, int nouvelleQuantite) {
         Produit produit = produits.get(id_produit);
         if (produit != null) {
@@ -56,4 +59,11 @@ public class ProduitRespository {
         }
         return produit;
     }
+	
+	public void addproduitfaible(int id) {
+		produitfaible.put(id, "le produit d'id "+id+"sont stock est faible");
+	}
+	public Map<Integer,String> produitfaible(){
+		return produitfaible;
+	}
 }

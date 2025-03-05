@@ -22,7 +22,7 @@ public class AuthentificationFilter implements Filter {
 		boolean isLogin = path.endsWith("/login");
 		boolean isSinginClient=path.endsWith("/insertClient");
 		HttpSession session = req.getSession(false);
-		boolean loggedIn = (session!=null && session.getAttribute("user")!=null);
+		boolean loggedIn = (session!=null && session.getAttribute("role")!=null);
 		
 		if(isLogin || loggedIn || isSinginClient) {
 			chain.doFilter(request, response);

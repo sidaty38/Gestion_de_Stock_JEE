@@ -25,7 +25,7 @@ public class ClientService {
 		return repository.get();
 	}
 	@GET
-	@Path("historique/commandes/{id}")
+	@Path("Client/historique/commandes/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Commandes> historique_commandes(@PathParam("id") int id){
 		Client client= repository.getbyid(id);
