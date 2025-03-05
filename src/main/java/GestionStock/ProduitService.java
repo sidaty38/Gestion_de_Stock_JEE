@@ -60,4 +60,23 @@ public Produit updateQuantiteProduit(@PathParam("id_produit") int id_produit,
     return produitResponse.updateQuantite(id_produit, nouvelleQuantite);
 }
 
+@PUT
+@Path("gestionnaire/alert/produitfaible/{id}")
+public String alert(@PathParam("id") int id) {
+	Produit produit=produitResponse.getbyid(id);
+	if(produit!=null) {
+		produitResponse.addproduitfaible(id);
+		return "";
+	}else {
+		return "le produit ne pas trouver";
+	}
+}
+
+@GET
+@Path("Stockfaible")
+public Map<Integer,String> stockfaible(){
+	return produitResponse.produitfaible();
+}
+
+
 }

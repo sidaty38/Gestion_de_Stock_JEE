@@ -13,7 +13,7 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
-@Path("Client")
+@Path("client")
 public class ClientService {
      
 	static ClienRepository repository = new ClienRepository();

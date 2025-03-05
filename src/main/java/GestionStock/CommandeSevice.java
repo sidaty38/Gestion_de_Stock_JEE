@@ -1,4 +1,4 @@
-package GestionStock;
+	package GestionStock;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

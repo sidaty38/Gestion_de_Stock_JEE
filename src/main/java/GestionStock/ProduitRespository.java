@@ -61,8 +61,10 @@ public class ProduitRespository {
     }
 	
 	public void addproduitfaible(int id) {
-		produitfaible.put(id, "le produit d'id "+id+"sont stock est faible");
+		String nom=produits.get(id).getNom();
+		produitfaible.put(id, "le stock de "+nom+" est faible");
 	}
+	
 	public Map<Integer,String> produitfaible(){
 		return produitfaible;
 	}

@@ -26,8 +26,9 @@ public class Controle_daccès implements Filter {
 
         boolean isLogin = path.endsWith("/login");
 		boolean isSinginClient=path.endsWith("/insertClient");
+		boolean logout=path.endsWith("/logout");
 		
-		if(isLogin || isSinginClient) {
+		if(isLogin || isSinginClient || logout) {
 			chain.doFilter(request, response);
 		}
 		
