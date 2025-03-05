@@ -42,5 +42,12 @@ public class UtilisateurRepository {
 		users.replace(id, user);
 		return user;
 	}
+	
+	public static void updatePassword(int id, String newPassword) { 
+        Utilisateur utilisateur = users.get(id);
+        if (utilisateur != null) {
+            utilisateur.setPassword(newPassword); 
+        }
+}
 
 }

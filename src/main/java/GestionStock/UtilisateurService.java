@@ -44,5 +44,11 @@ public class UtilisateurService {
 	        repository.deletebyid(id);
 	    
 	}
+	@POST
+    @Path("/{id}/updatepassword")
+    public String updatePassword(@PathParam("id") int id, PasswordRequest passwordRequest) {
+        UtilisateurRepository.updatePassword(id, passwordRequest.getNewPassword());
+        return "{\"message\": \"Mot de passe modifié avec succès\"}";
+    }
 
 }
